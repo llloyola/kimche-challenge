@@ -32,4 +32,4 @@ jobs:
       - name: Build
         run: cd challenge && yarn build
       - name: Deploy
-        run: aws s3 sync ./challenge/dist/ s3://kimche-challenge-bucket
+        run: aws s3 sync ./challenge/dist/ s3://deploy-kimche-challenge
