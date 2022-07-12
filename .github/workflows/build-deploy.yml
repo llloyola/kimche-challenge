@@ -30,6 +30,6 @@ jobs:
       - name: Install dependencies
         run: cd challenge && yarn
       - name: Build
-        run: yarn build
+        run: cd challenge && yarn build
       - name: Deploy
         run: aws s3 sync ./challenge/dist/ s3://kimche-challenge-bucket
