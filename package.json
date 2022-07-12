@@ -1,0 +1,39 @@
+{
+  "license": "MIT",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "cd challenge && yarn start",
+    "build": "cd challenge && yarn build",
+    "lint": "cd challenge && yarn lint",
+    "lint:fix": "cd challenge && yarn lint:fix",
+    "format": "cd challenge && yarn format",
+    "configure-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "start"
+    }
+  },
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "yarn-run-all": "^3.1.1"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "eslint . --fix",
+      "prettier --write ."
+    ]
+  },
+  "name": "kimche-challenge",
+  "main": "challenge/index.js",
+  "repository": "https://github.com/llloyola/kimche-challenge.git"
+}

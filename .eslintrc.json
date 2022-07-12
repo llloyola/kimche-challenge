@@ -3,7 +3,7 @@
 		"browser": true,
 		"es2021": true
 	},
-	"extends": ["airbnb", "prettier"],
+	"extends": ["prettier"],
 	"parserOptions": {
 		"ecmaFeatures": {
 			"jsx": true
@@ -11,11 +11,9 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": ["prettier", "react"],
 	"rules": {
 		"react/react-in-jsx-scope": "off",
-		"prettier/prettier": ["error"],
-		"indent": "off"
+		"prettier/prettier": ["error"]
 	},
-	"ignorePatterns": ["dist/*", "node_modules/*", "public/*"]
+	"ignorePatterns": ["challenge/dist/*", "challenge/build/*", "challenge/node_modules/*", "challenge/public/*", "node_modules/*"]
 }
