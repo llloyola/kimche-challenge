@@ -1,13 +1,14 @@
 import React from "react";
-// import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import GET_COUNTRIES from "../queries/getCountries";
 
-// const client = new ApolloClient({
-//   uri: "https://countries.trevorblades.com",
-//   cache: new InMemoryCache(),
-// });
+function App() {
+	const { loading, error, data } = useQuery(GET_COUNTRIES);
 
-function Results() {
-  return <p>Deploy test! (Hope it works)</p>;
+	if (loading) return <p>Loading...</p>;
+	if (error) return <p>Error :</p>;
+
+	return <p>{JSON.stringify(data)}</p>;
 }
 
-export default Results;
+export default App;
