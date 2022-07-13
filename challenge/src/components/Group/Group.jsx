@@ -1,6 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
-import Country from "../Contry/Country";
+import Country from "../Country/Country";
 
 function Group({ continent, countries }) {
 	return (

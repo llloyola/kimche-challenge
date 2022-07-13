@@ -11,7 +11,7 @@ function Inputs({ setInput, setByContinent }) {
 	};
 
 	return (
-		<div>
+		<div id="inputs">
 			<input type="text" placeholder="Search..." onChange={(e) => handleChange(e)} />
 			<label className="switch">
 				<input type="checkbox" onClick={() => handleClick()} />
