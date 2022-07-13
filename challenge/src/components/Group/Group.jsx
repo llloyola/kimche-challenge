@@ -4,7 +4,7 @@ import Country from "../Country/Country";
 
 function Group({ continent, countries }) {
 	return (
-		<div key={continent}>
+		<div id={continent}>
 			<h2 key="groupTitle">{continent}</h2>
 			{countries.map((country) => (
 				<Country key={country.name} country={country} />
