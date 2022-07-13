@@ -1,5 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
+import "./Inputs.scss";
 
 function Inputs({ setInput, setByContinent }) {
 	const handleChange = (e) => {
@@ -12,11 +13,20 @@ function Inputs({ setInput, setByContinent }) {
 
 	return (
 		<div id="inputs">
-			<input type="text" placeholder="Search..." onChange={(e) => handleChange(e)} />
-			<label className="switch">
-				<input type="checkbox" onClick={() => handleClick()} />
-				<span className="slider" />
-			</label>
+			<div id="search">
+				<input
+					type="text"
+					id="searchTerm"
+					placeholder="What are you looking for?"
+					onChange={(e) => handleChange(e)}
+				/>
+			</div>
+			<div id="switch">
+				<label className="switchLabel">
+					<input type="checkbox" onClick={() => handleClick()} />
+					<span className="slider round" />
+				</label>
+			</div>
 		</div>
 	);
 }

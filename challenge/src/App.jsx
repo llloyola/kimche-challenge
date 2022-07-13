@@ -26,7 +26,6 @@ function App() {
 			<Title title="Country Search" />
 			<Inputs setInput={(input) => setInput(input)} setByContinent={() => setByContient()} />
 			<Result countries={data.countries} inputs={inputs} />
-			{JSON.stringify(inputs)}
 		</>
 	);
 }
