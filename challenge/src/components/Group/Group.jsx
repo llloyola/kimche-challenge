@@ -1,11 +1,14 @@
 import React from "react";
 import propTypes from "prop-types";
 import Country from "../Country/Country";
+import "./Group.scss";
 
 function Group({ groupName, countries }) {
 	return (
 		<div className="group">
-			<h2 key="groupTitle">{groupName}</h2>
+			<div className="groupTitle">
+				<h2 key="groupTitle">{groupName}</h2>
+			</div>
 			{countries.map((country) => (
 				<Country key={country.name} country={country} />
 			))}

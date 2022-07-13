@@ -18,7 +18,7 @@ function Result({ countries, inputs }) {
 				])
 				.filter((elem) => elem[1].length)
 				.map(([key, value]) => (
-					<Group key={key} continent={key} countries={value} />
+					<Group key={key} groupName={key} countries={value} />
 				))}
 		</div>
 	);

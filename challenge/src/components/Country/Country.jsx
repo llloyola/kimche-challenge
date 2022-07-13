@@ -1,5 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
+import "./Country.scss";
 
 function Country({ country: { name, capital, currency, languages } }) {
 	return (
