@@ -2,10 +2,10 @@ import React from "react";
 import propTypes from "prop-types";
 import Country from "../Country/Country";
 
-function Group({ continent, countries }) {
+function Group({ groupName, countries }) {
 	return (
-		<div id={continent}>
-			<h2 key="groupTitle">{continent}</h2>
+		<div className="group">
+			<h2 key="groupTitle">{groupName}</h2>
 			{countries.map((country) => (
 				<Country key={country.name} country={country} />
 			))}
@@ -14,7 +14,7 @@ function Group({ continent, countries }) {
 }
 
 Group.propTypes = {
-	continent: propTypes.string.isRequired,
+	groupName: propTypes.string.isRequired,
 	countries: propTypes.arrayOf(
 		propTypes.shape({
 			name: propTypes.string.isRequired,

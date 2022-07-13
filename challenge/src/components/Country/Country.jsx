@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 
 function Country({ country: { name, capital, currency, languages } }) {
 	return (
-		<div id={name}>
+		<div className="country">
 			<p className="name">{name}</p>
 			<p className="capital">{capital}</p>
 			<p className="currency">{currency}</p>
