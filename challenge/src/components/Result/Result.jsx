@@ -5,7 +5,7 @@ import Group from "../Group/Group";
 
 function Result({ countries, inputs }) {
 	return (
-		<div>
+		<div id="result">
 			{Object.entries(groupResults(countries, inputs.byContinent))
 				.sort((groupA, groupB) => {
 					if (groupA[0] < groupB[0]) return -1;

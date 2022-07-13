@@ -13,10 +13,6 @@ function Group({ continent, countries }) {
 	);
 }
 
-Group.defaultProps = {
-	countries: []
-};
-
 Group.propTypes = {
 	continent: propTypes.string.isRequired,
 	countries: propTypes.arrayOf(
@@ -26,7 +22,7 @@ Group.propTypes = {
 			currency: propTypes.string,
 			languages: propTypes.arrayOf(propTypes.shape({ name: propTypes.string }))
 		})
-	)
+	).isRequired
 };
 
 export default Group;
