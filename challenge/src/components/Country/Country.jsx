@@ -10,7 +10,7 @@ function Country({ country: { name, capital, currency, languages } }) {
 				<strong>Capital:</strong> {capital}
 			</p>
 			<p className="currency">
-				<strong>Currency:</strong> {currency}
+				<strong>Currency:</strong> {currency ? currency.replace(/,/g, ", ") : "No currency"}
 			</p>
 			<p className="languages">
 				<strong>Languages:</strong> {languages.map((lang) => lang.name).join(", ")}
