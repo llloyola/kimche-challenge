@@ -1,13 +1,17 @@
 .country {
+	flex: 1 0 26%;
 	border-radius: 25px;
 	background-color: #729b79;
 	padding: 20px 20px 20px 20px;
 	margin: 15px 10px 15px 10px;
-	width: 200px;
-	height: 220px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	width: 80%;
 
 	p {
 		color: #253237;
+		width: 100%;
 	}
 
 	p.name {
@@ -16,7 +20,8 @@
 	}
 
 	p.currency,
-	p.languages {
-		line-break: normal;
+	p.languages,
+	p.states {
+		line-break: auto;
 	}
 }

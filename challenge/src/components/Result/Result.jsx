@@ -29,9 +29,12 @@ Result.propTypes = {
 	countries: propTypes.arrayOf(
 		propTypes.shape({
 			name: propTypes.string.isRequired,
+			native: propTypes.string,
+			phone: propTypes.string,
 			capital: propTypes.string,
 			currency: propTypes.string,
-			languages: propTypes.arrayOf(propTypes.shape({ name: propTypes.string }))
+			languages: propTypes.arrayOf(propTypes.shape({ name: propTypes.string })),
+			states: propTypes.arrayOf(propTypes.shape({ name: propTypes.string }))
 		})
 	).isRequired,
 	inputs: propTypes.shape({

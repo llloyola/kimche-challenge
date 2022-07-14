@@ -5,6 +5,8 @@ export default gql`
 		countries {
 			code
 			name
+			native
+			phone
 			capital
 			currency
 			languages {
@@ -12,6 +14,9 @@ export default gql`
 			}
 			continent {
 				code
+				name
+			}
+			states {
 				name
 			}
 		}

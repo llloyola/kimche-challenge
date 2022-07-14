@@ -2,8 +2,7 @@
 	border-radius: 25px;
 	padding: 20px;
 	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
+	flex-flow: row wrap;
 	justify-content: center;
 	align-items: center;
 	margin-top: 10px;
@@ -12,10 +11,21 @@
 
 	.groupTitle {
 		background-color: #ad8350;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		border-radius: 25px;
+		height: 60px;
 		width: 100%;
 		h2 {
 			text-align: center;
 		}
+	}
+
+	.countries {
+		flex: 1;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
 	}
 }
