@@ -5,7 +5,6 @@ import GET_COUNTRIES from "./queries/getCountries";
 import Title from "./components/Title/Title";
 import Inputs from "./components/Inputs/Inputs";
 import Result from "./components/Result/Result";
-import "./App.scss";
 
 function App() {
 	const { data, loading, error } = useQuery(GET_COUNTRIES);
@@ -19,11 +18,21 @@ function App() {
 		setInputs({ ...inputs, byContinent: !inputs.byContinent });
 	};
 
-	if (loading) return <p>Loading...</p>;
-	if (error) return <p>Error :</p>;
+	if (loading)
+		return (
+			<div>
+				<Title title="Loading" />
+			</div>
+		);
+	if (error)
+		return (
+			<div>
+				<Title title="Error" />
+			</div>
+		);
 
 	return (
-		<div id="container">
+		<div>
 			<Title title="Country Search" />
 			<Inputs setInput={(input) => setInput(input)} setByContinent={() => setByContient()} />
 			<Result countries={data.countries} inputs={inputs} />
