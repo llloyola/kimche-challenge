@@ -25,7 +25,12 @@ function Inputs({ setInput, setByContinent }) {
 			</div>
 			<div id="switch">
 				<p>Group by:</p>
-				<button type="button" onClick={() => handleClick()}>
+				<button
+					type="button"
+					onClick={() => handleClick()}
+					onMouseEnter={() => setGroupByContinent(!groupByContinent)}
+					onMouseLeave={() => setGroupByContinent(!groupByContinent)}
+				>
 					{groupByContinent ? "Continent" : "Language"}
 				</button>
 			</div>
