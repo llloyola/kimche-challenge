@@ -2,6 +2,7 @@ import React from "react";
 import propTypes from "prop-types";
 import groupResults from "../../utils/groupResults";
 import Group from "../Group/Group";
+import "./Result.scss";
 
 function Result({ countries, inputs }) {
 	return (
