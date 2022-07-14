@@ -1,13 +1,34 @@
-import React from "react";
-// import { ApolloClient, InMemoryCache } from "@apollo/client";
+import React, { useState } from "react";
+import { useQuery } from "@apollo/client";
+// import groupResults from "./utils/groupResults";
+import GET_COUNTRIES from "./queries/getCountries";
+import Title from "./components/Title/Title";
+import Inputs from "./components/Inputs/Inputs";
+import Result from "./components/Result/Result";
+import "./App.scss";
 
-// const client = new ApolloClient({
-//   uri: "https://countries.trevorblades.com",
-//   cache: new InMemoryCache(),
-// });
+function App() {
+	const { data, loading, error } = useQuery(GET_COUNTRIES);
+	const [inputs, setInputs] = useState({ input: "", byContinent: true });
 
-function Results() {
-  return <p>Deploy test! (Hope it works)</p>;
+	const setInput = (input) => {
+		setInputs({ ...inputs, input });
+	};
+
+	const setByContient = () => {
+		setInputs({ ...inputs, byContinent: !inputs.byContinent });
+	};
+
+	if (loading) return <p>Loading...</p>;
+	if (error) return <p>Error :</p>;
+
+	return (
+		<div id="container">
+			<Title title="Country Search" />
+			<Inputs setInput={(input) => setInput(input)} setByContinent={() => setByContient()} />
+			<Result countries={data.countries} inputs={inputs} />
+		</div>
+	);
 }
 
-export default Results;
+export default App;

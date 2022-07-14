@@ -1,8 +1,19 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import App from "./App";
+import "./index.scss";
+
+const client = new ApolloClient({
+	uri: "https://countries.trevorblades.com",
+	cache: new InMemoryCache()
+});
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-root.render(<App />);
+root.render(
+	<ApolloProvider client={client}>
+		<App />
+	</ApolloProvider>
+);
