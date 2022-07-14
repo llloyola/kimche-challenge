@@ -7,7 +7,7 @@ function Country({ country: { name, capital, currency, languages } }) {
 		<div className="country">
 			<p className="name">{name}</p>
 			<p className="capital">
-				<strong>Capital:</strong> {capital}
+				<strong>Capital:</strong> {capital || "No capital"}
 			</p>
 			<p className="currency">
 				<strong>Currency:</strong> {currency ? currency.replace(/,/g, ", ") : "No currency"}
