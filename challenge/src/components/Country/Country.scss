@@ -1,0 +1,18 @@
+.country {
+	border-radius: 25px;
+	background-color: #729b79;
+	padding: 20px 20px 20px 20px;
+	margin: 15px 0px 15px 0px;
+	width: 200px;
+	height: 200px;
+	line-break: normal;
+
+	p {
+		color: #253237;
+	}
+
+	p.name {
+		font-size: 22px;
+		font-weight: bold;
+	}
+}

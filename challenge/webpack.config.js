@@ -12,13 +12,14 @@ module.exports = {
 				use: ["babel-loader"]
 			},
 			{
-				test: /\.css$/,
-				use: ["style-loader", "css-loader"]
+				test: /\.(css|scss)$/,
+				use: ["style-loader", "css-loader", "sass-loader"]
 			}
 		]
 	},
 	resolve: {
-		extensions: ["*", ".js", ".jsx"]
+		extensions: ["*", ".js", ".jsx", ".css", ".scss"],
+		modules: ["node_modules"]
 	},
 	output: {
 		path: path.resolve(__dirname, "dist"),

@@ -1,0 +1,24 @@
+.group {
+	border-radius: 25px;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	.groupTitle {
+		background-color: #ad8350;
+		border-radius: 25px;
+		width: 80%;
+		h2 {
+			text-align: center;
+		}
+	}
+}
+
+.group:not(:first-child) {
+	flex: 1;
+}

@@ -5,6 +5,7 @@ import GET_COUNTRIES from "./queries/getCountries";
 import Title from "./components/Title/Title";
 import Inputs from "./components/Inputs/Inputs";
 import Result from "./components/Result/Result";
+import "./App.scss";
 
 function App() {
 	const { data, loading, error } = useQuery(GET_COUNTRIES);
@@ -22,12 +23,11 @@ function App() {
 	if (error) return <p>Error :</p>;
 
 	return (
-		<>
+		<div id="container">
 			<Title title="Country Search" />
 			<Inputs setInput={(input) => setInput(input)} setByContinent={() => setByContient()} />
 			<Result countries={data.countries} inputs={inputs} />
-			{JSON.stringify(inputs)}
-		</>
+		</div>
 	);
 }
 
