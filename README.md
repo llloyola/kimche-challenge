@@ -2,7 +2,7 @@
 
 Nombre postulante: Luis Alberto Loyola Alessandrini
 
-Link a la app en producción: [LINK DEL DEPLOY]
+Link a la app en producción: http://deploy-kimche-challenge.s3-website-us-east-1.amazonaws.com/
 
 ## Instrucciones
 
