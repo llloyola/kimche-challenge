@@ -9,9 +9,11 @@ function Group({ groupName, countries }) {
 			<div className="groupTitle">
 				<h2 key="groupTitle">{groupName}</h2>
 			</div>
-			{countries.map((country) => (
-				<Country key={country.name} country={country} />
-			))}
+			<div className="countries">
+				{countries.map((country) => (
+					<Country key={country.name} country={country} />
+				))}
+			</div>
 		</div>
 	);
 }
@@ -21,9 +23,12 @@ Group.propTypes = {
 	countries: propTypes.arrayOf(
 		propTypes.shape({
 			name: propTypes.string.isRequired,
+			native: propTypes.string,
+			phone: propTypes.string,
 			capital: propTypes.string,
 			currency: propTypes.string,
-			languages: propTypes.arrayOf(propTypes.shape({ name: propTypes.string }))
+			languages: propTypes.arrayOf(propTypes.shape({ name: propTypes.string })),
+			states: propTypes.arrayOf(propTypes.shape({ name: propTypes.string }))
 		})
 	).isRequired
 };
