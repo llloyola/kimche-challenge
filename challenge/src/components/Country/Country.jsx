@@ -1,11 +1,14 @@
 import React from "react";
 import propTypes from "prop-types";
 import "./Country.scss";
+import countryFlagEmoji from "country-flag-emoji";
 
-function Country({ country: { name, capital, currency, languages } }) {
+function Country({ country: { code, name, capital, currency, languages } }) {
 	return (
 		<div className="country">
-			<p className="name">{name}</p>
+			<p className="name">
+				{countryFlagEmoji.get(code).emoji} {name}
+			</p>
 			<p className="capital">
 				<strong>Capital:</strong> {capital || "No capital"}
 			</p>
@@ -21,6 +24,7 @@ function Country({ country: { name, capital, currency, languages } }) {
 
 Country.propTypes = {
 	country: propTypes.shape({
+		code: propTypes.string,
 		name: propTypes.string,
 		capital: propTypes.string,
 		currency: propTypes.string,
