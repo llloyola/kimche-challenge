@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 12.x
       - name: Install dependencies
-        run: cd challenge && yarn
+        run: cd challenge && yarn install --ignore-engines
       - name: Build
         run: cd challenge && yarn build
       - name: Deploy
