@@ -2,7 +2,7 @@
 
 Nombre postulante: Luis Alberto Loyola Alessandrini
 
-Link a la app en producción: http://deploy-kimche-challenge.s3-website-us-east-1.amazonaws.com/
+Link a la app en producción: [LINK DEL DEPLOY]
 
 ## Instrucciones
 
@@ -38,3 +38,30 @@ Acá van algunas cosas que pueden ser útiles (o no 👀):
 - [Eslint](https://eslint.org/)
 - [Eslint airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
 - [Husky](https://www.npmjs.com/package/husky)
+
+# Solución al desafío
+
+## Decisiones de diseño
+
+## Respuesta a pregunta abierta
+> La tabla que contiene la información correspondiente a la asistencia diaria de un niño en un colegio tiene 90 millones de filas. Todas las tablas del sistema existen en la misma BDD en MySQL. La lógica del backend que actualiza la información correspondiente al pasar la asistencia tiene un tiempo de servicio p95 de 10 segundos. El equipo está interesado en bajar este tiempo para mejorar la experiencia del usuario (y porque nos gusta pensar en Kimche como un Ferrari). ¿Qué propondrías para enfrentar el problema? Esta pregunta es abierta, no hay respuestas malas. Puedes proponer arquitectura, tecnologías, diseño, etc.
+
+Ante este escenario, evaluaría las siguientes dos opciones:
+1) Realizar una optimización a la consulta de escritura a la DB. Por ejemplo, la consulta podría estar ejecutándose varias veces por separado:
+    ```sql
+    INSERT INTO `Asistencia` VALUES (student_1_id, curr_date);
+    INSERT INTO `Asistencia` VALUES (student_2_id, curr_date);
+    ...
+    INSERT INTO `Asistencia` VALUES (student_n_id, curr_date);
+    ``` 
+    En este caso, se podría optar por realizar la siguiente consulta, con un mismo resultado, pero más rápida si se desean escribir varios registros en la BD:
+    ```sql
+    INSERT INTO `Asistencia` VALUES (student_1_id, curr_date),(student_2_id, curr_date),...,(student_n_id, curr_date);
+    ``` 
+    De la misma manera, se podrían analizar y hacer un refactor a otros aspectos de cómo está escrita la query, mejorando el tiempo de respuesta y la experiencia de usuario. Otros aspectos a considerar podrían ser
+    - Verificar si se está usando una primary key en la tabla
+    - Remodelar el esquema de la base de datos, un mal diseño puede conllevar mayor tiempo de ejecución.
+
+2) Optar por otro RDBMS (Relational Database Managemente System), pues MYSQL no tiene un buen desempeño en comparación a otras alternativas (por ejemplo, PSQL) a la hora de manejar grandes cantidades de registros y operaciones de escritura.
+
+Finalmente, lo mejor que se podría hacer es llevar a cabo un análisis de si la primera opción es viable (saber si realmente vale la pena la cantidad de tiempo que se va a optimizar) y si no lo es, ya habría que cambiar de RDBMS, lo cual suena razonable considerando el tamaño de la tabla y que seguirá aumentando en número de registros.
