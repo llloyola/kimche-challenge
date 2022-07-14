@@ -6,10 +6,15 @@ function Country({ country: { name, capital, currency, languages } }) {
 	return (
 		<div className="country">
 			<p className="name">{name}</p>
-			<p className="capital">{capital}</p>
-			<p className="currency">{currency}</p>
-			<p className="languages">{languages.map((lang) => lang.name).join(", ")}</p>
-			<br />
+			<p className="capital">
+				<strong>Capital:</strong> {capital}
+			</p>
+			<p className="currency">
+				<strong>Currency:</strong> {currency}
+			</p>
+			<p className="languages">
+				<strong>Languages:</strong> {languages.map((lang) => lang.name).join(", ")}
+			</p>
 		</div>
 	);
 }

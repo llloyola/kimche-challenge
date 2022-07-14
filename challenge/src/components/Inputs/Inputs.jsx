@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import propTypes from "prop-types";
 import "./Inputs.scss";
 
 function Inputs({ setInput, setByContinent }) {
+	const [groupByContinent, setGroupByContinent] = useState(true);
 	const handleChange = (e) => {
 		setInput(e.target.value);
 	};
 
 	const handleClick = () => {
 		setByContinent();
+		setGroupByContinent(!groupByContinent);
 	};
 
 	return (
@@ -17,15 +19,15 @@ function Inputs({ setInput, setByContinent }) {
 				<input
 					type="text"
 					id="searchTerm"
-					placeholder="What are you looking for?"
+					placeholder="What country are you looking for?"
 					onChange={(e) => handleChange(e)}
 				/>
 			</div>
 			<div id="switch">
-				<label className="switchLabel">
-					<input type="checkbox" onClick={() => handleClick()} />
-					<span className="slider round" />
-				</label>
+				<p>Group by:</p>
+				<button type="button" onClick={() => handleClick()}>
+					{groupByContinent ? "Continent" : "Language"}
+				</button>
 			</div>
 		</div>
 	);
