@@ -4,8 +4,7 @@
 	padding: 20px 20px 20px 20px;
 	margin: 15px 10px 15px 10px;
 	width: 200px;
-	height: 200px;
-	line-break: normal;
+	height: 220px;
 
 	p {
 		color: #253237;
@@ -14,5 +13,10 @@
 	p.name {
 		font-size: 22px;
 		font-weight: bold;
+	}
+
+	p.currency,
+	p.languages {
+		line-break: normal;
 	}
 }
